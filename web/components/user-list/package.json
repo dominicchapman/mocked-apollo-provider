@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@map/users-list",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w --preserveWatchOutput",
+    "storybook": "start-storybook --ci -p 9001"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "babel-jest": "^26.0.1",
+    "ts-loader": "^8.0.1",
+    "typescript": "^4.1.2"
+  }
+}

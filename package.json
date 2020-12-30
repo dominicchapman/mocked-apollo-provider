@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "mocked-apollo-provider",
+  "workspaces": [
+    "api",
+    "web",
+    "web/**/*"
+  ]
+}
