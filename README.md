@@ -14,3 +14,19 @@ This has applications in the rendering of UI components in Storybook where acces
 |                                                   Input                                                   |                                                  Output                                                   |
 | :-------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
 | ![](https://user-images.githubusercontent.com/7607007/103382287-660d1900-4ae6-11eb-9f6a-f86ca946d3fb.png) | ![](https://user-images.githubusercontent.com/7607007/103382233-1f1f2380-4ae6-11eb-972d-9a9d030ca426.png) |
+
+### Considerations
+
+This approach (specifically, using the Babel macro to capture the schema at build time) means using Babel for compilation instead of `tsc` (which is still used, but build and strictly for creating `.d.ts` files).
+
+This would likely mean that a `<MockedProvider /> needs a dedicated package.
+
+### Issues
+
+`useQuery` and `gql` had to be [exported](https://github.com/dominicchapman/mocked-apollo-provider/blob/main/web/utilities/mocked-apollo-provider/src/index.tsx#L3) from the same directory as the `<MockedProvider />` otherwise Apollo would throw the following error: "Could not find "client" in the context or passed in as an option."
+
+I found a bunch of reports about this error in relation to mixed use of `@apollo/client` and `apollo-hooks` and so on, but this felt different.
+
+I am concerned it could suggest that the Babel compilation interferes in some way with the export, but could just be Storybook being a pain. Need more time on this, but would prefer to gauge interest first.
+
+... Hope it all makes sense! ☺
