@@ -17,9 +17,9 @@ This has applications in the rendering of UI components in Storybook where acces
 
 ### Considerations
 
-This approach (specifically, using the Babel macro to capture the schema at build time) means using Babel for compilation instead of `tsc` (which is still used, but build and strictly for creating `.d.ts` files).
+This approach (specifically, using the Babel macro to capture the schema at build time) means using Babel for compilation instead of `tsc` (which is still used, but post-build and strictly for creating `.d.ts` files).
 
-This would likely mean that a `<MockedProvider /> needs a dedicated package.
+This would likely mean that use of a component like `<MockedProvider />` would call for a dedicated package.
 
 ### Issues
 
