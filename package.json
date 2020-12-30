@@ -4,6 +4,7 @@
   "workspaces": [
     "api",
     "web",
-    "web/**/*"
+    "web/components/user-list",
+    "web/utilities/mocked-apollo-provider"
   ]
 }

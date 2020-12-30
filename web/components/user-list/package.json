@@ -9,6 +9,8 @@
     "storybook": "start-storybook --ci -p 9001"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.5",
+    "@map/mocked-apollo-provider": "0.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

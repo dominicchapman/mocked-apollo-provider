@@ -1,5 +1,5 @@
 {
-  "name": "@map/api",
+  "name": "api",
   "version": "0.0.0",
   "private": true,
   "scripts": {

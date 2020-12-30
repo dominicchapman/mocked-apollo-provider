@@ -7,22 +7,15 @@ import React from "react";
 
 const typeDefs = loader("../../../../api/schema.graphql");
 const schema = makeExecutableSchema({ typeDefs });
+const schemaWithMocks = addMocksToSchema({ schema });
 
-interface MockedProviderProps {
-  mocks?: any;
-}
-
-export const MockedProvider: React.FC<MockedProviderProps> = ({
-  children,
-  mocks,
-}) => {
+export const MockedProvider = ({ children }: { children: React.ReactNode }) => {
   const client = React.useMemo(() => {
-    const withMocks = addMocksToSchema({ schema, mocks });
     return new ApolloClient({
       cache: new InMemoryCache(),
-      link: new SchemaLink({ schema: withMocks }),
+      link: new SchemaLink({ schema: schemaWithMocks }),
     });
-  }, [mocks]);
+  }, []);
 
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 };
